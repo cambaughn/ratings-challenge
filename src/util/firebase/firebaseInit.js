@@ -16,5 +16,4 @@ try {
 
 // Initialize Cloud Firestore through Firebase
 let db = getFirestore(app);
-
-module.exports = db;
+export default db;
