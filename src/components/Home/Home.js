@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Home.module.scss';
-import { addNewRating } from '../../util/api/rating';
+import { addNewReview } from '../../util/api/review';
+import ReviewsOverview from '../ReviewsOverview/ReviewsOverview';
 
 export default function Home({}) {
   return (
     <div className={styles.container}>
-
+      <ReviewsOverview product={{ name: 'The Minimalist Entrepreneur' }} />
     </div>
   )
 }
