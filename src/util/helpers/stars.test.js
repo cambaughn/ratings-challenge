@@ -1,6 +1,6 @@
-import { determineEmptyStars, determineFullStars, hasHalfStar } from "./stars";
+import { determineEmptyStars, determineFullStars, hasHalfStar, roundHalf } from "./stars";
 
-
+// NOTE: run yarn test or npm test
 describe('Can determine full stars correctly', () => {
   let cases = [[5, 5], [4, 4], [3.5, 3], [1.5, 1]];
 
@@ -32,6 +32,18 @@ describe('Can determine half stars correctly', () => {
     "given %o as an argument, returns %p",
     (input, expectedResult) => {
       const result = hasHalfStar(input);
+      expect(result).toEqual(expectedResult);
+    }
+  );
+})
+
+describe('Rounds number to the nearest .5', () => {
+  let cases = [[1.5, 1.5], [4.5, 4.5], [4, 4],  [3.7, 3.5], [2.8, 3], [1.2, 1], [3.3, 3.5]];
+
+  test.each(cases)(
+    "given %o as an argument, returns %p",
+    (input, expectedResult) => {
+      const result = roundHalf(input);
       expect(result).toEqual(expectedResult);
     }
   );

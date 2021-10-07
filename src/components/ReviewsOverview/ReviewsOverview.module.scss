@@ -1,5 +1,5 @@
 .container {
-  width: 380px;
+  width: 450px;
 }
 
 .topSection {
@@ -32,6 +32,7 @@
 
 .averageRating {
   font-size: 28px;
+  margin-right: 12px;
 }
 
 .addReviewButton {
@@ -74,6 +75,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  margin-top: 15px;
 }
 
 .reviewRating {
@@ -83,4 +85,5 @@
 .reviewText {
   font-size: 16px;
   line-height: 23px;
+  margin-left: 15px;
 }

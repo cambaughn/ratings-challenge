@@ -10,4 +10,8 @@ const determineEmptyStars = (rating) => {
   return Math.floor(5 - rating);
 }
 
-export { determineFullStars, hasHalfStar, determineEmptyStars }
+const roundHalf = (number) => {
+  return Math.round(number * 2) / 2;
+}
+
+export { determineFullStars, hasHalfStar, determineEmptyStars, roundHalf }
