@@ -18,7 +18,6 @@ export default function Home({}) {
   const loadProduct = async () => {
     // NOTE: Currently hardcoding the product id to this specific one. In production, this would be switched out for the product id for the current page/focused product.
     let productFromDatabase = await getProduct('fg8AcifHN9A3huWcv3hI');
-    console.log('product form db ', productFromDatabase);
     dispatch(setProduct(productFromDatabase));
   }
 

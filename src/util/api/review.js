@@ -14,7 +14,6 @@ const getReviewsForProduct = async (product_id) => {
   const reviewsQuery = query(collection(db, "reviews"), where("product", "==", product_id));
   const reviewsSnapshot = await getDocs(reviewsQuery);
   const reviews = convertSnapshot(reviewsSnapshot);
-  console.log('got reviews ', reviews);
   return Promise.resolve(reviews);
 }
 
