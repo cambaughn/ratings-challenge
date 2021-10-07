@@ -38,7 +38,7 @@ export default function Home({}) {
 
       { reviewModalActive &&
         <div className={styles.addReviewWrapper}>
-          <AddReview product={product} />
+          <AddReview product={product} closeModal={() => setReviewModalActive(false)} />
         </div>
       }
     </div>
