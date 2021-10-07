@@ -59,7 +59,6 @@ export default function StarRating({ rating, setRating, clickable }) {
 
   useEffect(determineStars, [rating, virtualRating]);
 
-  console.log(virtualRating);
 
   return (
     <div className={styles.container} onMouseLeave={resetVirtualRating} onClick={setVirtualRatingAsRating}>
