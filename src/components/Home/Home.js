@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Home.module.scss';
-import { addNewReview } from '../../util/api/review';
-import ReviewsOverview from '../ReviewsOverview/ReviewsOverview';
 import { useSelector, useDispatch } from 'react-redux';
 import { setProduct, setReviews } from '../../util/redux/actionCreators';
+// Components
+import ReviewsOverview from '../ReviewsOverview/ReviewsOverview';
+// Utility functions
 import { getProduct } from '../../util/api/product';
 import { getReviewsForProduct } from '../../util/api/review';
 
 export default function Home({}) {
+  const [reviewModalActive, setReviewModalActive] = useState(false);
   const product = useSelector(state => state.product);
   const reviews = useSelector(state => state.reviews);
   const dispatch = useDispatch();
