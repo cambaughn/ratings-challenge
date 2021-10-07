@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ReviewsOverview.module.scss';
 import StarRating from '../StarRating/StarRating';
 
 
 export default function ReviewsOverview({ product, reviews, openReviewModal }) {
-  const [rating, setRating] = useState(3.5);
+  const [rating, setRating] = useState(null);
 
+  const determineAverageRating = () => {
+    if (reviews.length) {
+      let totalRatings = reviews.reduce((sum, review) => {
+        return sum + review.rating;
+      }, 0);
+      let average = parseFloat((totalRatings / reviews.length).toFixed(1));
+      setRating(average);
+    }
+  }
+
+  useEffect(determineAverageRating, [reviews]);
 
   return (
     <div className={styles.container}>
