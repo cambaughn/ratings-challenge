@@ -17,14 +17,22 @@ export default function StarRating({ rating, setRating, clickable }) {
   }
 
   const determineMousePosition = (event, index) => {
-    let width = event.currentTarget.offsetWidth;
-    let bounds = event.target.getBoundingClientRect();
-    let x = event.clientX - bounds.left;
-    // let y = event.clientY - bounds.top;
-    let halfStar = x < (width / 2);
-    let newVirtualRating = halfStar ? index + 0.5 : index + 1;
-    setVirtualRating(newVirtualRating);
-    console.log(halfStar);
+    if (clickable) {
+      let width = event.currentTarget.offsetWidth;
+      let bounds = event.target.getBoundingClientRect();
+      let x = event.clientX - bounds.left;
+      // let y = event.clientY - bounds.top;
+      let halfStar = x <= (width / 2);
+      let newVirtualRating = halfStar ? index + 0.5 : index + 1;
+      newVirtualRating = newVirtualRating < 1 ? 1 : newVirtualRating;
+
+      setVirtualRating(newVirtualRating);
+    }
+  }
+
+  const setVirtualRatingAsRating = () => {
+    setRating(virtualRating);
+    resetVirtualRating();
   }
 
   const determineStars = () => {
@@ -51,9 +59,10 @@ export default function StarRating({ rating, setRating, clickable }) {
 
   useEffect(determineStars, [rating, virtualRating]);
 
+  console.log(virtualRating);
 
   return (
-    <div className={styles.container} onMouseOut={resetVirtualRating}>
+    <div className={styles.container} onMouseLeave={resetVirtualRating} onClick={setVirtualRatingAsRating}>
       { stars.map((star, index) => {
         if (star === 1) {
           return (
