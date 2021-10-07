@@ -25,7 +25,7 @@ export default function ReviewsOverview({ product, reviews, openReviewModal }) {
         <h3 className={styles.reviewHeader}>Reviews</h3>
         { reviews.map((review, index) => {
           return (
-            <div className={styles.reviewWrapper}>
+            <div className={styles.reviewWrapper} key={review.text + index}>
               <StarRating rating={review.rating} />
               <span className={styles.reviewText}><span className={styles.reviewRating}>{review.rating}</span> - {review.text}</span>
             </div>

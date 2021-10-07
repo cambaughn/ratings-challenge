@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setProduct, setReviews } from '../../util/redux/actionCreators';
 // Components
 import ReviewsOverview from '../ReviewsOverview/ReviewsOverview';
+import AddReview from '../AddReview/AddReview';
 // Utility functions
 import { getProduct } from '../../util/api/product';
 import { getReviewsForProduct } from '../../util/api/review';
@@ -33,7 +34,13 @@ export default function Home({}) {
 
   return (
     <div className={styles.container}>
-      <ReviewsOverview product={product} reviews={reviews} />
+      <ReviewsOverview product={product} reviews={reviews} openReviewModal={() => setReviewModalActive(true)} />
+
+      { reviewModalActive &&
+        <div className={styles.addReviewWrapper}>
+          <AddReview product={product} />
+        </div>
+      }
     </div>
   )
 }

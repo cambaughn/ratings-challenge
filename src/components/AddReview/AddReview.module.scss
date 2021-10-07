@@ -1,0 +1,30 @@
+.container {
+  width: 500px;
+  height: 400px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px #d3d9da;
+}
+
+.header {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.reviewInput {
+  width: 100%;
+  height: 50px;
+  resize: none;
+  outline: none;
+  border: none;
+  font-family: Roboto;
+  font-size: 14px;
+}
